@@ -8,6 +8,10 @@ last_message = "Приветствую"
 def start_massage(message):
     bot.send_message(message.chat.id, "Привет, зачем ты меня позвал?") #Ответочка команде START
 
+@bot.message_handler(commands=['photo']) #Ловим команду PHOTO
+def send_pictures(message):
+    with open("329966_original.jpg", 'rb') as Vinny: #Загружаем картинку
+        bot.send_photo(message.chat.id, Vinny) #Шлем фото Винни
 
 @bot.message_handler(content_types = ['text'])#Ловин новые текстовые сообщения
 def otvet (message):
