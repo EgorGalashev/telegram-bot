@@ -7,7 +7,7 @@ bot = telebot.TeleBot("1439408799:AAH6VxNNvXcrrtl3BcXUDDvnHEP3UhGBYCA")
 
 
 random_number = 0 #Число которое потом заменится на случайное
-counter = 0 #
+counter = 0 #Счетчик попыток
 
 
 #######  ОТВЕТ НА КОМАНДУ START
@@ -29,9 +29,10 @@ def otvet (message):
         
         if user_number == random_number:
             bot.send_message(message.chat.id, "You quessed!")
+            bot.send_message(message.chat.id, str(counter)+ "ты потратил попыток"
         
         elif user_number > random_number:
-            bot.send_message(message.chat.id, "Too big")
+             bot.send_message(message.chat.id, "Too big")
             
         
         elif user_number < random_number:
